@@ -1,0 +1,116 @@
+{
+    "nodes": [{
+	    "id": "initalien",
+	    "lbl": "Ceux qui diffèrent : les ALIENS",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["alien"],
+	    "desc": "blabla aliens"
+	    ,
+	    "next": ["af2", "af3"]
+	},
+
+	{
+	    "id": "af2",
+	    "lbl": "les amers Ur-Ukar",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["ukar"],
+	    "desc": "blabla aliens"
+	    ,
+	    "next": ["auke"]
+	},
+	{
+	    "id": "af3",
+	    "lbl": "les sauvages Vorox",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["vorox"],
+	    "desc": "blabla aliens"
+	    ,
+	    "next": ["avoe"]
+	},
+
+	{
+	    "id": "auke",
+	    "lbl": "éducation ukari",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla education ukari"
+	    ,
+	    "next": ["auka"]
+	},
+	{
+	    "id": "avoe",
+	    "lbl": "éducation vorox",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["vorox"],
+	    "desc": "blabla éducation vorox"
+	    ,
+	    "next": ["avoa"]
+	},
+	{
+	    "id": "auka",
+	    "lbl": "apprentissage ukari",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla apprentissage ukari"
+	    ,
+	    "next": ["auka1", "auka2"]
+	},
+	{
+	    "id": "avoa",
+	    "lbl": "apprentissage vorox",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["vorox"],
+	    "desc": "blabla apprentissage vorox"
+	    ,
+	    "next": ["avoa1", "avoa2"]
+	},
+	{
+	    "id": "auka1",
+	    "lbl": "parmi les clans",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla clans"
+	    ,
+	    "next": ["aukd"]
+	},
+	{
+	    "id": "auka2",
+	    "lbl": "parmi les hors-la-loi",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["vorox"],
+	    "desc": "blabla apprentissage vorox"
+	    ,
+	    "next": ["aukd"]
+	},
+	{
+	    "id": "avoa1",
+	    "lbl": "dans la caste nobiliaire",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla clans"
+	    ,
+	    "next": ["avod"]
+	},
+	{
+	    "id": "avoa2",
+	    "lbl": "parmi les guerriers",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["vorox"],
+	    "desc": "blabla apprentissage vorox"
+	    ,
+	    "next": ["avod"]
+	}
+
+    ]
+}

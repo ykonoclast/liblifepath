@@ -1,0 +1,183 @@
+{
+    "faction": [
+	{
+	    "id": "nf1",
+	    "lbl": "la fière maison Hawkwood",
+	    "desc": "Fier qu'un des siens soit devenu empereur, tout Hawkwood est persuadé qu'il est destiné à la grandeur. Vous êtes né(e) dans une famille estimant qu'il est à la fois son privilège et son devoir que d'assurer l'univers de sa supériorité.",
+	    "next": ["ne1H", "ne2H"]
+	},
+	{
+	    "id": "nf2",
+	    "lbl": "l'infâme maison Decados",
+	    "desc": "Les mondes connus furent saisis de surprise quand les Decados échouèrent à s'emparer du trône impérial. Vous êtes né(e) dans une famille célébrée pour sa sophistication, son esprit et son charme, mais redoutée pour sa malveillance et ses excès dans le vice. ",
+	    "next": ["ne1D", "ne2D"]
+	}],
+
+    "education": [
+	{
+	    "id": "ne1H",
+	    "lbl": "Haute cour",
+	    "desc": "Vous avez passé votre jeunesse dans un palais, entouré d'une nuée de serviteurs et de précepteurs. Constamment observé, vous deviez toujours répondre à de plus hautes attentes. Le jeu en valait la chandelle : vous avez en effet pu rencontrer nombre de dignitaires et être le témoin d'événements fameux.",
+	    "traits": [
+		["physique", 1],
+		["coordination", 1],
+		["mental", 1],
+		["présence", 2]
+	    ],
+	    "comps": [
+		["combat au corps à corps (au choix)", 1],
+		["étiquette", 1],
+		["subterfuge", 1],
+		["art oratoire", 1]
+	    ],
+	    "next": ["na1a",
+		"na1b", "na3"]
+	},
+	{
+	    "id": "ne1D",
+	    "lbl": "Haute cour",
+	    "desc": "Vous avez passé votre jeunesse dans un palais, entouré d'une nuée de serviteurs et de précepteurs. Constamment observé, vous deviez toujours répondre à de plus hautes attentes. Le jeu en valait la chandelle : vous avez en effet pu rencontrer nombre de dignitaires et être le témoin d'événements fameux.",
+	    "traits": [
+		["volonté", 2],
+		["coordination", 1],
+		["mental", 2]
+	    ],
+	    "comps": [
+		["investigation", 1],
+		["étiquette", 1],
+		["subterfuge", 2],
+		["art oratoire", 1],
+		["ombres (au choix)", 1]
+	    ],
+	    "next": ["na1a",
+		"na1b", "na3"]
+	},
+
+	{
+	    "id": "ne2H",
+	    "lbl": "Fief provincial",
+	    "desc": "Vous avez passé votre jeunesse dans un château ou un manoir. Bien qu'éloigné des importantes affaires de la cour, cette existence restait bien supérieur à celle dont pouvaient jouir la masse des paysans et homes libres de l'empire. Vous avez pu bénéficier de tuteurs, mais ils avaient généralement d'autres charges que votre éducation, vous laissant parfois livré(e) à vous-même.",
+	    "traits": [
+		["physique", 2],
+		["coordination", 1],
+		["mental", 1],
+		["présence", 1]
+	    ],
+	    "comps": [
+		["combat au corps à corps (au choix)", 1],
+		["pilotage (au choix)", 1],
+		["survie", 1],
+		["arts physiques (au choix)", 1]
+	    ],
+	    "next": ["na1a",
+		"na1b", "na3"]
+	},
+	{
+	    "id": "ne2D",
+	    "lbl": "Fief provincial",
+	    "desc": "Vous avez passé votre jeunesse dans un château ou un manoir. Bien qu'éloigné des importantes affaires de la cour, cette existence restait bien supérieur à celle dont pouvaient jouir la masse des paysans et homes libres de l'empire. Vous avez pu bénéficier de tuteurs, mais ils avaient généralement d'autres charges que votre éducation, vous laissant parfois livré(e) à vous-même.",
+	    "traits": [
+		["volonté", 2],
+		["coordination", 2],
+		["mental", 2]
+	    ],
+	    "comps": [
+		["furtivité", 1],
+		["étiquette", 1],
+		["subterfuge", 2],
+		["survie", 1]
+	    ],
+	    "next": ["na1a",
+		"na1b", "na3"]
+	},
+
+	{
+	    "id": "na1a",
+	    "lbl": "Officier dans l'Armée",
+	    "desc": "Vous vous êtes engagé(e) à servir votre suzerain par les armes sur tous les champs de bataille des mondes connus, ainsi qu'il en est attendu d'un vrai chevalier",
+	    "traits": [
+		["physique", 2],
+		["coordination", 2]
+	    ],
+	    "comps": [
+		["Combat au corps à corps (au choix)", 1],
+		["Combat à distance (au choix)", 1],
+		["arts physiques (au choix)", 2],
+		["subterfuge", 1],
+		["art oratoire", 2],
+		["stratégie", 1]
+	    ],
+	    "next": ["nd1a",
+		"nd1b", "nd3"]
+	},
+
+	{
+	    "id": "na1b",
+	    "lbl": "Officier dans la flotte spatiale",
+	    "desc": "Vous vous êtes engagé(e) à porter la bannière de votre suzerain à travers les étoiles mourantes, servant à bord des antiques éthérodynes de la flotte stellaire.",
+	    "traits": [
+		["mental", 2],
+		["coordination", 1],
+		["présence", 1]
+	    ],
+	    "comps": [
+		["Combat au corps à corps (au choix)", 2],
+		["tir assisté", 2],
+		["arts physiques (au choix)", 1],
+		["subterfuge", 1],
+		["art oratoire", 2],
+		["stratégie", 2]
+	    ],
+	    "next": ["nd1a",
+		"nd1b", "nd3"]
+	},
+
+	{
+	    "id": "na3",
+	    "lbl": "érudit",
+	    "desc": "Vous vous êtes passionné pour les arts de l'esprit comme la théologie ou la technorédemption",
+	    "traits": [
+		["mental", 2],
+		["volonté", 2],
+		["présence", 1]
+	    ],
+	    "comps": [
+		["investigation", 2],
+		["érudition (au choix)", 2],
+		["Technorédemption (au choix)", 1]
+	    ],
+	    "langues": 2,
+	    "next": ["nd1a",
+		"nd1b", "nd3"]
+	}
+    ],
+    "deb_carriere": [
+	{
+	    "id": "nd1a",
+	    "lbl": "Commandement militaire",
+	    "desc": "Poursuivant une carrière militaire, vous avez fait chanter voss armes pour la plus grande gloire de votre seigneur ",
+	    "traits": [
+		["physique", 2],
+		["coordination", 2],
+		["mental", 1]
+	    ],
+	    "comps": [
+		["investigation", 2],
+		["érudition (au choix)", 2],
+		["Technorédemption (au choix)", 1]
+	    ],
+	    "langues": 2,
+	    "next": ["nd1a",
+		"nd1b", "nd3"]
+	},
+	{
+	    "id": "nd1b"
+	}
+	,
+	{
+	    "id": "nd3"
+	}
+
+
+    ]
+}

@@ -1,0 +1,151 @@
+{
+
+    "nodes": [{
+	    "id": "initnoble",
+	    "lbl": "Ceux qui dirigent : les NOBLES",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["noble"],
+	    "desc": "blabla nobles"
+	    ,
+	    "next": ["nf1,nf2"]
+	},
+	{
+	    "id": "nf1",
+	    "lbl": "la fière maison Hawkwood",
+	    "desc": "Fier qu'un des siens soit devenu empereur, tout Hawkwood est persuadé qu'il est destiné à la grandeur. Vous êtes né(e) dans une famille estimant qu'il est à la fois son privilège et son devoir que d'assurer l'univers de sa supériorité."
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["ne"]
+	},
+	{
+	    "id": "nf2",
+	    "lbl": "l'infâme maison Decados",
+	    "desc": "Les mondes connus furent saisis de surprise quand les Decados échouèrent à s'emparer du trône impérial. Vous êtes né(e) dans une famille célébrée pour sa sophistication, son esprit et son charme, mais redoutée pour sa malveillance et ses excès dans le vice. "
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["ne"]
+	},
+	{
+	    "id": "ne",
+	    "lbl": "passer à l'étape de l'éducation nobiliaire",
+	    "desc": "blabla éducation"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["ne1,ne2"]
+	},
+
+	{
+	    "id": "ne1",
+	    "lbl": "Haute cour",
+	    "desc": "Vous avez passé votre jeunesse dans un palais, entouré d'une nuée de serviteurs et de précepteurs. Constamment observé, vous deviez toujours répondre à de plus hautes attentes. Le jeu en valait la chandelle : vous avez en effet pu rencontrer nombre de dignitaires et être le témoin d'événements fameux."
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["na"]
+	},
+
+	{
+	    "id": "ne2",
+	    "lbl": "Fief provincial",
+	    "desc": "Vous avez passé votre jeunesse dans un château ou un manoir. Bien qu'éloigné des importantes affaires de la cour, cette existence restait bien supérieur à celle dont pouvaient jouir la masse des paysans et homes libres de l'empire. Vous avez pu bénéficier de tuteurs, mais ils avaient généralement d'autres charges que votre éducation, vous laissant parfois livré(e) à vous-même."
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["na"]
+	},
+	{
+	    "id": "na",
+	    "lbl": "Passer à l'étape de l'apprentissage nobiliaire",
+	    "desc": "blabla apprentissage"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["na1", "na3"]
+	},
+
+	{
+	    "id": "na1",
+	    "lbl": "Apprentissage militaire",
+	    "desc": "blabla apprentissage"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["na1a", "na1b"]
+	},
+
+	{
+	    "id": "na1a",
+	    "lbl": "Officier dans l'Armée",
+	    "desc": "Vous vous êtes engagé(e) à servir votre suzerain par les armes sur tous les champs de bataille des mondes connus, ainsi qu'il en est attendu d'un vrai chevalier"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd"]
+	},
+
+	{
+	    "id": "na1b",
+	    "lbl": "Officier dans la flotte spatiale",
+	    "desc": "Vous vous êtes engagé(e) à porter la bannière de votre suzerain à travers les étoiles mourantes, servant à bord des antiques éthérodynes de la flotte stellaire."
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd"]
+	},
+
+	{
+	    "id": "na3",
+	    "lbl": "érudit",
+	    "desc": "Vous vous êtes passionné pour les arts de l'esprit comme la théologie ou la technorédemption"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd"]
+	}
+	,
+	{
+	    "id": "nd",
+	    "lbl": "début de carrière",
+	    "desc": "blabla début de carrière"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd1", "nd3"]
+	}, {
+	    "id": "nd1",
+	    "lbl": "commandement militaire",
+	    "desc": "Poursuivant une carrière militaire, vous avez fait chanter vos armes pour la plus grande gloire de votre seigneur ",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["np"]
+	},
+
+	{
+	    "id": "nd3",
+	    "lbl": "quête impériale",
+	    "desc": "blabla quête",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}
+
+
+    ]
+}
