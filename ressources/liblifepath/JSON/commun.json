@@ -1,0 +1,107 @@
+{
+    "nodes": [
+	{
+	    "id": "init",
+	    "lbl": "choix de la faction",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla faction"
+	    ,
+	    "next": ["initnoble", "initalien"]
+	},
+
+	{
+	    "id": "pc",
+	    "lbl": "poursuite de carrière",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla poursuite carrière"
+	    ,
+	    "next": ["pc1", "pc3", "pc5"]
+	},
+	{
+	    "id": "2pc",
+	    "lbl": "poursuite de carrière deuxième coup",
+	    "obligatoire": [],
+	    "interdit": ["vorox", "2pc"],
+	    "def": ["2pc"],
+	    "desc": "blabla poursuite carrière 2"
+	    ,
+	    "next": ["pc1", "pc2", "pc3", "pc5"]
+	},
+	{
+	    "id": "pc1",
+	    "lbl": "poursuite de carrière classique",
+	    "obligatoire": [],
+	    "interdit": ["pc1"],
+	    "def": ["pc1"],
+	    "desc": "blabla poursuite carrière"
+	    ,
+	    "next": ["2pc"]
+	},
+	{
+	    "id": "pc2",
+	    "lbl": "autre poursuite de carrière classique",
+	    "obligatoire": ["pc1"],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla autre poursuite carrière"
+	    ,
+	    "next": []
+	},
+	{
+	    "id": "pc3",
+	    "lbl": "service impérial",
+	    "obligatoire": [],
+	    "interdit": ["pc3"],
+	    "def": ["pc3"],
+	    "desc": "blabla service impérial",
+	    "next": ["pc3a", "pc3b"]
+	},
+	{
+	    "id": "pc3a",
+	    "lbl": "Charte impériale",
+	    "obligatoire": ["noble"],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla charte impériale",
+	    "next": ["2pc"]
+	}, {
+	    "id": "pc3b",
+	    "lbl": "Cohorte impériale",
+	    "obligatoire": ["pretre", "guilde"],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla cohorte impériale",
+	    "next": ["2pc"]
+	},
+	{
+	    "id": "pc5",
+	    "lbl": "cybernétique",
+	    "obligatoire": [],
+	    "interdit": ["pc5"],
+	    "def": ["pc5"],
+	    "desc": "blabla cyber",
+	    "next": ["pc5a", "pc5b"]
+	}, {
+	    "id": "pc5a",
+	    "lbl": "amélioré",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla cyber normal",
+	    "next": ["2pc"]
+	}, {
+	    "id": "pc5b",
+	    "lbl": "surchargé",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla cyber abusé",
+	    "next": []
+	}
+
+    ]
+}

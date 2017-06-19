@@ -8,7 +8,7 @@
 	    "def": ["noble"],
 	    "desc": "blabla nobles"
 	    ,
-	    "next": ["nf1,nf2"]
+	    "next": ["nf1", "nf2"]
 	},
 	{
 	    "id": "nf1",
@@ -133,7 +133,7 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["np"]
+	    "next": ["pc"]
 	},
 
 	{

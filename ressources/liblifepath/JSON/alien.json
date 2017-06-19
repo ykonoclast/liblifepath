@@ -46,7 +46,7 @@
 	    "lbl": "éducation vorox",
 	    "obligatoire": [],
 	    "interdit": [],
-	    "def": ["vorox"],
+	    "def": [],
 	    "desc": "blabla éducation vorox"
 	    ,
 	    "next": ["avoa"]
@@ -66,7 +66,7 @@
 	    "lbl": "apprentissage vorox",
 	    "obligatoire": [],
 	    "interdit": [],
-	    "def": ["vorox"],
+	    "def": [],
 	    "desc": "blabla apprentissage vorox"
 	    ,
 	    "next": ["avoa1", "avoa2"]
@@ -86,8 +86,8 @@
 	    "lbl": "parmi les hors-la-loi",
 	    "obligatoire": [],
 	    "interdit": [],
-	    "def": ["vorox"],
-	    "desc": "blabla apprentissage vorox"
+	    "def": [],
+	    "desc": "blabla ukar hors la loi"
 	    ,
 	    "next": ["aukd"]
 	},
@@ -97,7 +97,7 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "desc": "blabla clans"
+	    "desc": "blabla noble apprent vorox"
 	    ,
 	    "next": ["avod"]
 	},
@@ -106,10 +106,69 @@
 	    "lbl": "parmi les guerriers",
 	    "obligatoire": [],
 	    "interdit": [],
-	    "def": ["vorox"],
-	    "desc": "blabla apprentissage vorox"
+	    "def": [],
+	    "desc": "blabla apprentissage guerriers vorox"
 	    ,
 	    "next": ["avod"]
+	}, {
+	    "id": "aukd",
+	    "lbl": "début de carrière ukar",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla dc ukar"
+	    ,
+	    "next": ["aukd1", "aukd2"]
+	},
+	{
+	    "id": "aukd1",
+	    "lbl": "dans les clans",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla nobles uk"
+	    ,
+	    "next": ["pc"]
+	},
+	{
+	    "id": "aukd2",
+	    "lbl": "parmi les hors la loi",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla hll uk"
+	    ,
+	    "next": ["pc"]
+	},
+	{
+	    "id": "avod",
+	    "lbl": "début de carrière vorox",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla dc vorox"
+	    ,
+	    "next": ["avod1", "avod2"]
+	},
+	{
+	    "id": "avod1",
+	    "lbl": "dans la caste nobiliaire",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla nobles vorox"
+	    ,
+	    "next": ["pc"]
+	},
+	{
+	    "id": "avod2",
+	    "lbl": "parmi les guerriers",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla guerriers vorox"
+	    ,
+	    "next": ["pc"]
 	}
 
     ]
