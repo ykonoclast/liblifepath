@@ -2,11 +2,11 @@
     "nodes": [
 	{
 	    "id": "init",
-	    "lbl": "choix de la faction",
+	    "lbl": "choix de l'état",
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "desc": "blabla faction"
+	    "desc": "blabla ordre"
 	    ,
 	    "next": ["initnoble", "initalien"]
 	},
@@ -25,7 +25,7 @@
 	    "id": "2pc",
 	    "lbl": "poursuite de carrière deuxième coup",
 	    "obligatoire": [],
-	    "interdit": ["vorox", "2pc"],
+	    "interdit": ["vorox", "2pc", "surcharge"],
 	    "def": ["2pc"],
 	    "desc": "blabla poursuite carrière 2"
 	    ,
@@ -98,7 +98,7 @@
 	    "lbl": "surchargé",
 	    "obligatoire": [],
 	    "interdit": [],
-	    "def": [],
+	    "def": ["surcharge"],
 	    "desc": "blabla cyber abusé",
 	    "next": []
 	}

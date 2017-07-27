@@ -16,7 +16,14 @@
  */
 package org.duckdns.spacedock.lifepath.liblifepath;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
+ * classe naviguant dans les divers choix d'un lifepath
  *
  * @author ykonoclast
  */
@@ -24,32 +31,103 @@ public class PathNavigator
 {
 
     /**
-     * instance unique du PathNavigator
+     * la référence contenant les données du jeu
      */
-    private static PathNavigator m_instance = null;//doit être statique pour être appelé par getInstance en contexte statique
+    private ChoiceTree m_choiceTree;
 
     /**
-     * pseudo-constructeur public garantissant un et un seul PathNavigator par
-     * lancement de l'application
+     * la liste des nodes ayant déjà été sélectionnés au cours de ce parcours
+     * (hors retour en arrière)
+     */
+    private ArrayList<Node> m_nodesChoisis;
+
+    /**
+     * la liste des mots clés définis au cours de ce parcours (hors retour en
+     * arrière)
+     */
+    private HashSet m_motsClesDefinis;
+
+    /**
+     * liste des choix autorisés dans l'état actuel, on utilise une
+     * LinkedHashMap pour avoir à la fois les clés/valeurs (id/lbl) et
+     * l'ordonnancement des éléments
+     */
+    private LinkedHashMap m_choixPossibles;
+
+    /**
+     * l'identifiant technique du node actuel
+     */
+    private String m_currentId;
+
+    /**
+     * constructeur
+     */
+    public PathNavigator()
+    {
+	//chargement de la référence
+	m_choiceTree = new ChoiceTree();
+	//positionnement au début de l'arbre des choix
+	m_currentId = "init";
+    }
+
+    /**
      *
-     * @return le PathNavigator actuel si il a été créé, un nouveau sinon
+     * @return une map contenant les choix possibles (description courte) en
+     * clés et les id techniques (pour soumission ultérieure) en valeurs
      */
-    public static PathNavigator getInstance()//doit être statique pour être appelé hors instanciation d'un objet
+    public Choice getCurrentChoice()
     {
-	if (m_instance == null)
+	Node nodeCourant = m_choiceTree.getNode(m_currentId);
+
+	//on parcourt la liste des successeurs du node actuels
+	for (Object idSucc : nodeCourant.succ)
 	{
-	    m_instance = new PathNavigator();
+	    //on récupère les infos du successeur dans l'arbre
+	    Node nodeSucc = m_choiceTree.getNode((String) idSucc);
+
+	    if (Collections.disjoint(nodeSucc.interdit, m_motsClesDefinis))
+	    {//le node successeur n'est pas interdit
+		if (!Collections.disjoint(nodeSucc.obligatoire, m_motsClesDefinis))
+		{//les requis du node successeurs sont satisfaits
+		    m_choixPossibles.put(idSucc, nodeSucc.lbl);//on ajoute alors le node successeurs aux choix possibles
+		}
+	    }
 	}
-	return (m_instance);
+	//on renvoie la liste des choix possibles avec la description du node actuel
+	return new Choice(m_choixPossibles, m_choiceTree.getNode(m_currentId).desc);
     }
 
     /**
-     * véritable constructeur, appelé seulement si le SessionManager n'a pas
-     * encore été créé
+     * permet au code appelant d'exprimer un choix de navigation parmi les
+     * options proposées par le node actuel, tout choix impossible est ignoré
+     *
+     * @param p_id
+     * @return la même chose que la méthode getCurrentChoice une fois le choix
+     * actuel mis à jour
      */
-    private PathNavigator()
+    public Choice choose(String p_id)
     {
-
+	if (m_choixPossibles.containsKey(p_id))
+	{//le choix effectué est autorisé
+	    m_currentId = p_id;
+	}
+	return getCurrentChoice();
     }
 
+    /**
+     * petite classe encapsulant les éléments d'un choix : la description du
+     * node actuel ainsi que les prochains choix possibles
+     */
+    public class Choice
+    {
+
+	public final Map choices;
+	public final String desc;
+
+	public Choice(Map p_choices, String p_desc)
+	{
+	    choices = p_choices;
+	    desc = p_desc;
+	}
+    }
 }
