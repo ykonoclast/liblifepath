@@ -3,10 +3,10 @@
 	    "id": "initpretre",
 	    "lbl": "Ceux qui prient : les PRÊTRES",
 	    "obligatoire": [],
-	    "interdit": [],
+	    "interdit": ["ukar", "vorox"],
 	    "def": ["pretre"],
 	    "desc": "blabla pretres",
-	    "next": ["ps1", "nps2", "ps3", "ps4", "ps5", "ps6"]
+	    "next": ["ps1", "ps2", "ps3", "ps4", "ps5", "ps6"]
 	},
 	{
 	    "id": "ps1",
@@ -15,16 +15,16 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["pe"]
+	    "next": ["re", "bn", "ba"]
 	},
 	{
 	    "id": "ps2",
 	    "lbl": "le redoutable ordre des Fréres de Bataille",
 	    "desc": "blabla",
 	    "obligatoire": [],
-	    "interdit": [],
-	    "def": [],
-	    "next": ["pe"]
+	    "interdit": ["noble"],
+	    "def": ["frereB"],
+	    "next": ["re"]
 	},
 	{
 	    "id": "ps3",
@@ -33,7 +33,7 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["pe"]
+	    "next": ["re", "bn", "ba"]
 	},
 	{
 	    "id": "ps4",
@@ -42,7 +42,7 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["pe"]
+	    "next": ["re", "bn", "ba"]
 	},
 	{
 	    "id": "ps5",
@@ -51,7 +51,7 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["pe"]
+	    "next": ["re", "bn", "ba"]
 	},
 	{
 	    "id": "ps6",
@@ -60,8 +60,115 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["pe"]
-	}
+	    "next": ["re", "bn", "ba"]
+	}, {
+	    "id": "pe1",
+	    "lbl": "Enfance dans un cloître de fréres de bataille",
+	    "desc": "blabla",
+	    "obligatoire": ["frereB"],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pa"]
+	},
 
+	{
+	    "id": "pa",
+	    "lbl": "Passer à l'étape de l'apprentissage religieux",
+	    "desc": "blabla",
+	    "obligatoire": ["pretre"],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pa1", "pa2", "pa3", "pa4"]
+	},
+	{
+	    "id": "pa1",
+	    "lbl": "Dans une grande cathédrale",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["pd"]
+	},
+	{
+	    "id": "pa2",
+	    "lbl": "Dans une paroisse locale",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["pd"]
+	}, {
+	    "id": "pa3",
+	    "lbl": "Dans un monastère",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["pd"]
+	}, {
+	    "id": "pa4",
+	    "lbl": "Apprentissage de Frére de Bataille",
+	    "desc": "blabla",
+	    "obligatoire": ["frereB"],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pd"]
+	}, {
+	    "id": "pd",
+	    "lbl": "Début de carrière",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pd1", "pd2", "pd3", "pd4", "pd5", "pd6"]
+	}, {
+	    "id": "pd1",
+	    "lbl": "Prêcheur",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "pd2",
+	    "lbl": "Moine",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "pd3",
+	    "lbl": "Missionaire",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "pd4",
+	    "lbl": "Guérisseur",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "pd5",
+	    "lbl": "Inquisiteur",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "pd6",
+	    "lbl": "Début de carrière de Frére de Bataille",
+	    "desc": "blabla",
+	    "obligatoire": ["frereB"],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}
     ]
 }

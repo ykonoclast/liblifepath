@@ -7,9 +7,18 @@
 	    "def": ["alien"],
 	    "desc": "blabla aliens"
 	    ,
-	    "next": ["af2", "af3"]
+	    "next": ["af1", "af2", "af3"]
 	},
-
+	{
+	    "id": "af1",
+	    "lbl": "les subtils Ur-Obun",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["obun"],
+	    "desc": "blabla aliens"
+	    ,
+	    "next": ["aobe"]
+	},
 	{
 	    "id": "af2",
 	    "lbl": "les amers Ur-Ukar",
@@ -30,26 +39,52 @@
 	    ,
 	    "next": ["avoe"]
 	},
+	{
+	    "id": "aobe",
+	    "lbl": "enfance obun",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla education obun",
+	    "next": ["aoba", "rah"]
+	},
 
 	{
 	    "id": "auke",
-	    "lbl": "éducation ukari",
+	    "lbl": "enfance ukari",
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
 	    "desc": "blabla education ukari"
 	    ,
-	    "next": ["auka"]
+	    "next": ["auka", "rah"]
 	},
 	{
 	    "id": "avoe",
-	    "lbl": "éducation vorox",
+	    "lbl": "enfance vorox",
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
 	    "desc": "blabla éducation vorox"
 	    ,
-	    "next": ["avoa"]
+	    "next": ["avoa", "rah"]
+	}, {
+	    "id": "rah",
+	    "lbl": "rejoindre une institution humaine",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "Dans cet empire dominé par la race humaine, bien des aliens aspirent à être plus que les esclaves des natifs de la planète bleue. L'un des moyens les plus simples consiste à abandonner sa propre civilisation pour rejoindre l'une des grandes institutions impériales susceptible d'accueillir un alien. Vous avez fait le choix de quitter la société qui vous a vu naître pour vivre parmi les humains.",
+	    "next": ["initpretre", "initguilde"]
+	}, {
+	    "id": "aoba",
+	    "lbl": "apprentissage obun",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla apprentissage obun"
+	    ,
+	    "next": ["aoba1", "aoba2", "aoba3"]
 	},
 	{
 	    "id": "auka",
@@ -70,6 +105,33 @@
 	    "desc": "blabla apprentissage vorox"
 	    ,
 	    "next": ["avoa1", "avoa2"]
+	}, {
+	    "id": "aoba1",
+	    "lbl": "Conseiller Umo'rin",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla"
+	    ,
+	    "next": ["aobd"]
+	}, {
+	    "id": "aoba2",
+	    "lbl": "Prêtre Vovavenlohjun",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla"
+	    ,
+	    "next": ["aobd"]
+	}, {
+	    "id": "aoba3",
+	    "lbl": "Champion Vhem-saahen",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla"
+	    ,
+	    "next": ["aobd"]
 	},
 	{
 	    "id": "auka1",
@@ -110,6 +172,42 @@
 	    "desc": "blabla apprentissage guerriers vorox"
 	    ,
 	    "next": ["avod"]
+	}, {
+	    "id": "aobd",
+	    "lbl": "début de carrière obun",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla dc obun"
+	    ,
+	    "next": ["aobd1", "aobd2", "aobd3"]
+	}, {
+	    "id": "aobd1",
+	    "lbl": "Conseiller Umo'rin",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla"
+	    ,
+	    "next": ["pc"]
+	}, {
+	    "id": "aobd2",
+	    "lbl": "Prêtre Vovavenlohjun",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla"
+	    ,
+	    "next": ["pc"]
+	}, {
+	    "id": "aobd3",
+	    "lbl": "Champion Vhem-saahen",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "desc": "blabla"
+	    ,
+	    "next": ["pc"]
 	}, {
 	    "id": "aukd",
 	    "lbl": "début de carrière ukar",

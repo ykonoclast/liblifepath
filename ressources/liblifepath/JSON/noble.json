@@ -49,7 +49,7 @@
 	},
 	{
 	    "id": "nf5",
-	    "lbl": "la rusée maison Al-Malik",
+	    "lbl": "l'habile maison Al-Malik",
 	    "desc": "blabla",
 	    "obligatoire": [],
 	    "interdit": [],
@@ -67,12 +67,12 @@
 	},
 	{
 	    "id": "ne",
-	    "lbl": "passer à l'étape de l'éducation nobiliaire",
+	    "lbl": "passer à l'étape de l'enfance nobiliaire",
 	    "desc": "blabla éducation",
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["ne1", "ne2"]
+	    "next": ["ne1", "ne2", "ne3"]
 	},
 
 	{
@@ -83,9 +83,8 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["na"]
+	    "next": ["na", "rn"]
 	},
-
 	{
 	    "id": "ne2",
 	    "lbl": "Fief provincial",
@@ -94,7 +93,26 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["na"]
+	    "next": ["na", "rn"]
+	},
+	{
+	    "id": "ne3",
+	    "lbl": "Sans terres",
+	    "desc": "blabla"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["na", "rn"]
+	},
+	{
+	    "id": "rn",
+	    "lbl": "changer de corps social",
+	    "desc": "Certains jeunes bien-nés ne poursuivent pas leur vie parmi les leurs. Bien des cadets de noblesse sont dirigés vers les ordres religieux alors qu'ils sortent à peine de l'enfance. D'autres fuient une vie de privilèges mais aussi de conformisme pour une existence plus aventureuse et rejoignent une Guilde, le scandale est alors grand pour leur famille. Jeune adolescent vous avez vous-même quitté le sérail pour vous diriger vers un autre ordre de la société.",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["initpretre", "initguilde"]
 	},
 	{
 	    "id": "na",
@@ -104,7 +122,7 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["na1", "na3"]
+	    "next": ["na1", "na2", "na3", "na4"]
 	},
 
 	{
@@ -139,9 +157,47 @@
 	    "def": [],
 	    "next": ["nd"]
 	},
-
+	{
+	    "id": "na2",
+	    "lbl": "Courtisan",
+	    "desc": "blkaba"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd"]
+	},
 	{
 	    "id": "na3",
+	    "lbl": "Oisif",
+	    "desc": "blabla"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["na3a", "na3b"]
+	},
+	{
+	    "id": "na3a",
+	    "lbl": "Duelliste",
+	    "desc": "blabla"
+	    ,
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd"]
+	},
+	{
+	    "id": "na3b",
+	    "lbl": "Dandy",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd"]
+	},
+	{
+	    "id": "na4",
 	    "lbl": "érudit",
 	    "desc": "Vous vous êtes passionné pour les arts de l'esprit comme la théologie ou la technorédemption"
 	    ,
@@ -159,11 +215,55 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["nd1", "nd3"]
+	    "next": ["nd1", "nd2", "nd3"]
 	}, {
 	    "id": "nd1",
 	    "lbl": "commandement militaire",
 	    "desc": "Poursuivant une carrière militaire, vous avez fait chanter vos armes pour la plus grande gloire de votre seigneur ",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd1a", "nd1b"]
+	},
+	{
+	    "id": "nd1a",
+	    "lbl": "Dans l'espace",
+	    "desc": "meugni",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	},
+
+	{
+	    "id": "nd1b",
+	    "lbl": "au sol",
+	    "desc": "meugni",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	},
+	{
+	    "id": "nd2",
+	    "lbl": "à la cour",
+	    "desc": "meugni",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["nd2a", "nd2b"]
+	}, {
+	    "id": "nd2a",
+	    "lbl": "En tant que duelliste",
+	    "desc": "meugni",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "nd2b",
+	    "lbl": "En tant qu'ambassadeur",
+	    "desc": "meugni",
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],

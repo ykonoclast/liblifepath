@@ -89,8 +89,9 @@ public class PathNavigator
 
 	    if (nodeSucc.interdit.isEmpty() || Collections.disjoint(nodeSucc.interdit, m_motsClesDefinis))
 	    {//le node successeur n'est pas interdit
-		if (nodeSucc.obligatoire.isEmpty() || !Collections.disjoint(nodeSucc.obligatoire, m_motsClesDefinis))
-		{//les requis du node successeurs sont satisfaits (deux ensembles vides sont disjoints par défaut, d'où le OR pour régler ce cas limite
+
+		if (nodeSucc.obligatoire.isEmpty() || m_motsClesDefinis.containsAll(nodeSucc.obligatoire))
+		{//les requis du node successeurs sont satisfaits, les mots clés obligatoires sont un sous-ensemble de ceux déjà définis
 		    m_choixPossibles.put((String) idSucc, nodeSucc.lbl);//on ajoute alors le node successeurs aux choix possibles
 		}
 	    }

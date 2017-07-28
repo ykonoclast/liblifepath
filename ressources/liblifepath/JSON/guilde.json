@@ -6,6 +6,243 @@
 	    "interdit": [],
 	    "def": ["guilde"],
 	    "desc": "blabla ligue",
-	    "next": []
-	}]
+	    "next": ["gg1", "gg2", "gg3", "gg4", "gg5", "gg6"]
+	},
+	{
+	    "id": "gg1",
+	    "lbl": "les Auriges, voyageurs des étoiles",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re", "bn", "ba"]
+	},
+	{
+	    "id": "gg2",
+	    "lbl": "les Ingénieurs, gardiens des anciennes sciences",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re", "bn", "ba"]
+	},
+	{
+	    "id": "gg3",
+	    "lbl": "les Scravers, maîtres du commerce et des ombres",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re", "bn", "ba"]
+	},
+	{
+	    "id": "gg4",
+	    "lbl": "les Négriers, pourvoyeurs de main d'oeuvre des Mondes Connus",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re", "bn", "ba"]
+	},
+	{
+	    "id": "gg5",
+	    "lbl": "les Baillis, administrateurs et financiers de l'Empire",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re", "bn", "ba"]
+	},
+	{
+	    "id": "gg6",
+	    "lbl": "les indépendants, défiant les privilèges des guildes",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re", "bn", "ba"]
+	}, {
+	    "id": "ga",
+	    "lbl": "passer à l'apprentissage de la Ligue",
+	    "desc": "blabla",
+	    "obligatoire": ["guilde"],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["ga1", "ga2", "ga3"]
+	},
+
+	{
+	    "id": "ga1",
+	    "lbl": "Académie de la Ligue",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd"]
+	}, {
+	    "id": "ga2",
+	    "lbl": "Agora guildienne",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd"]
+	},
+	{
+	    "id": "ga3",
+	    "lbl": "Dans la rue",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd"]
+	}, {
+	    "id": "gd",
+	    "lbl": "Début de carrière",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd1", "gd2", "gd3", "gd4", "gd5"]
+	},
+	{
+	    "id": "gd1",
+	    "lbl": "Au marché",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd1a", "gd1b"]
+	},
+	{
+	    "id": "gd1a",
+	    "lbl": "Comme marchand",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	},
+	{
+	    "id": "gd1b",
+	    "lbl": "Dans la finance",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "gd2",
+	    "lbl": "A bord d'un astronef",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd2a", "gd2b", "gd2c"]
+	},
+	{
+	    "id": "gd2a",
+	    "lbl": "Parmi les pilotes",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "gd2b",
+	    "lbl": "Dans les équipes techniques",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "gd2c",
+	    "lbl": "Parmi les artilleurs",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	},
+	{
+	    "id": "gd3",
+	    "lbl": "Dans une compagnie mercenaire",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd3a", "gd3b"]
+	},
+	{
+	    "id": "gd3a",
+	    "lbl": "En tant que combattant",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	},
+	{
+	    "id": "gd3b",
+	    "lbl": "Dans le soutien",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	},
+	{
+	    "id": "gd4",
+	    "lbl": "Dans un milieu intellectuel",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd4a", "gd4b"]
+	},
+	{
+	    "id": "gd4a",
+	    "lbl": "En tant qu'érudit",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "gd4b",
+	    "lbl": "En tant que scientifique",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	},
+	{
+	    "id": "gd5",
+	    "lbl": "Dans des activités illégales",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["gd5a", "gd5b"]
+	}, {
+	    "id": "gd5a",
+	    "lbl": "En tant que voleur",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}, {
+	    "id": "gd5b",
+	    "lbl": "En tant qu'espion",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pc"]
+	}
+
+    ]
 }

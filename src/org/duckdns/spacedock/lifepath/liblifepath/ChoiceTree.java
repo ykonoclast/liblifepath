@@ -60,6 +60,12 @@ class ChoiceTree
 	object = loadJsonFile("liblifepath", "alien.json");
 	m_listNodes.add(object.getJsonArray("nodes"));
 
+	object = loadJsonFile("liblifepath", "guilde.json");
+	m_listNodes.add(object.getJsonArray("nodes"));
+
+	object = loadJsonFile("liblifepath", "pretre.json");
+	m_listNodes.add(object.getJsonArray("nodes"));
+
 	//création de la HashMap
 	m_tabNodes = new HashMap();
 

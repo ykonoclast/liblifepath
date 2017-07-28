@@ -8,6 +8,112 @@
 	    "def": [],
 	    "desc": "blabla ordre",
 	    "next": ["initnoble", "initpretre", "initguilde", "initalien"]
+	}, {
+	    "id": "re",
+	    "lbl": "passer à l'étape de l'enfance roturière",
+	    "desc": "blabla éducation",
+	    "obligatoire": [],
+	    "interdit": ["noble", "alien"],
+	    "def": [],
+	    "next": ["pe1", "re2"]
+	}, {
+	    "id": "bn",
+	    "lbl": "ainsi commença une nouvelle vie",
+	    "desc": "Bien que vous ne partagiez pas les origines de ceux qui étaient désormais vos compagnons, ayant passé votre enfance parmi les seigneurs des Mondes Connus, vous partagiez avec eux une vision commune de ce vers quoi devait s'orienter votre vie.",
+	    "obligatoire": ["noble"],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pa", "ga"]
+	}, {
+	    "id": "ba",
+	    "lbl": "ainsi commença une nouvelle vie",
+	    "desc": "Bien que vous ne partagiez pas les origines de ceux qui étaient désormais vos compagnons, ayant passé votre enfance parmi d'autres aliens, vous partagiez avec eux une vision commune de ce vers quoi devait s'orienter votre vie.",
+	    "obligatoire": ["alien"],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pa", "ga"]
+	},
+
+	{
+	    "id": "re2",
+	    "lbl": "définir l'environnement d'origine",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": ["frereB"],
+	    "def": [],
+	    "next": ["re2a", "re2b", "re2c", "re2d"]
+	},
+	{
+	    "id": "re2a",
+	    "lbl": "Grande cité",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re3"]
+	},
+	{
+	    "id": "re2b",
+	    "lbl": "Ville",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re3"]
+	},
+	{
+	    "id": "re2c",
+	    "lbl": "Campagne",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re3"]
+	},
+	{
+	    "id": "re2d",
+	    "lbl": "Habitat spatial",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re3"]
+	},
+	{
+	    "id": "re3",
+	    "lbl": "définir la classe sociale d'origine",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["re3a", "re3b", "re3c"]
+	},
+	{
+	    "id": "re3a",
+	    "lbl": "Riche",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pa", "ga"]
+	},
+	{
+	    "id": "re3b",
+	    "lbl": "Classe moyenne",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pa", "ga"]
+	},
+	{
+	    "id": "re3c",
+	    "lbl": "Pauvre",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pa", "ga"]
 	},
 
 	{
@@ -17,7 +123,7 @@
 	    "interdit": [],
 	    "def": [],
 	    "desc": "blabla poursuite carrière",
-	    "next": ["pc1", "pc3", "pc5"]
+	    "next": ["pc1", "pc3", "pc4", "pc5"]
 	},
 	{
 	    "id": "2pc",
@@ -26,7 +132,7 @@
 	    "interdit": ["vorox", "2pc", "surcharge"],
 	    "def": ["2pc"],
 	    "desc": "blabla poursuite carrière 2",
-	    "next": ["pc1", "pc2", "pc3", "pc5"]
+	    "next": ["pc1", "pc2", "pc3", "pc4", "pc5"]
 	},
 	{
 	    "id": "pc1",
@@ -49,7 +155,7 @@
 	{
 	    "id": "pc3",
 	    "lbl": "service impérial",
-	    "obligatoire": ["noble", "pretre", "guilde"],
+	    "obligatoire": [],
 	    "interdit": ["pc3"],
 	    "def": ["pc3"],
 	    "desc": "blabla service impérial",
@@ -66,15 +172,60 @@
 	}, {
 	    "id": "pc3b",
 	    "lbl": "Cohorte impériale",
-	    "obligatoire": ["pretre", "guilde"],
+	    "obligatoire": [],
 	    "interdit": ["noble"],
 	    "def": [],
 	    "desc": "blabla cohorte impériale",
 	    "next": ["2pc"]
 	},
 	{
+	    "id": "pc4",
+	    "lbl": "Développer d'éventuels pouvoirs occultes",
+	    "obligatoire": [],
+	    "interdit": ["vorox"],
+	    "def": [],
+	    "desc": "blabla occulte",
+	    "next": ["pc4a", "pc4b", "pc4c", "pc4d"]
+	}, {
+	    "id": "pc4a",
+	    "lbl": "Eveiller des pouvoirs psioniques",
+	    "obligatoire": [],
+	    "interdit": ["vorox", "pc4a"],
+	    "def": ["pc4a"],
+	    "desc": "blabla psi latent",
+	    "next": ["2pc"]
+	},
+	{
+	    "id": "pc4b",
+	    "lbl": "Maîtriser vos pouvoirs psioniques à un plus haut niveau",
+	    "obligatoire": ["pc4a"],
+	    "interdit": ["vorox", "pc4b"],
+	    "def": ["pc4b"],
+	    "desc": "blabla psi avacné",
+	    "next": []
+	},
+	{
+	    "id": "pc4c",
+	    "lbl": "Vous initier à la Théurgie",
+	    "obligatoire": ["pretre"],
+	    "interdit": ["pc4c"],
+	    "def": ["pc4c"],
+	    "desc": "blabla",
+	    "next": ["2pc"]
+	},
+	{
+	    "id": "pc4d",
+	    "lbl": "Maîtriser plus avant les mystères de la Théurgie",
+	    "obligatoire": ["pretre", "pc4c"],
+	    "interdit": ["pc4d"],
+	    "def": ["pc4d"],
+	    "desc": "blabla",
+	    "next": []
+	},
+
+	{
 	    "id": "pc5",
-	    "lbl": "cybernétique",
+	    "lbl": "acquérir des implants cybernétique",
 	    "obligatoire": [],
 	    "interdit": ["pc5"],
 	    "def": ["pc5"],
