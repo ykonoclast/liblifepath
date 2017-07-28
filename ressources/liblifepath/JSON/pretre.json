@@ -1,0 +1,67 @@
+{
+    "nodes": [{
+	    "id": "initpretre",
+	    "lbl": "Ceux qui prient : les PRÊTRES",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["pretre"],
+	    "desc": "blabla pretres",
+	    "next": ["ps1", "nps2", "ps3", "ps4", "ps5", "ps6"]
+	},
+	{
+	    "id": "ps1",
+	    "lbl": "la rigoriste Orthodoxie Teyrienne",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pe"]
+	},
+	{
+	    "id": "ps2",
+	    "lbl": "le redoutable ordre des Fréres de Bataille",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pe"]
+	},
+	{
+	    "id": "ps3",
+	    "lbl": "le mystique Ordre Eskatonique",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pe"]
+	},
+	{
+	    "id": "ps4",
+	    "lbl": "le fanatique Temple Avesti",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pe"]
+	},
+	{
+	    "id": "ps5",
+	    "lbl": "le charitable Sanctuaire Aeon",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pe"]
+	},
+	{
+	    "id": "ps6",
+	    "lbl": "l'humble secte Hesychaste",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["pe"]
+	}
+
+    ]
+}

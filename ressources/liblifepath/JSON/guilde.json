@@ -1,0 +1,11 @@
+{
+    "nodes": [{
+	    "id": "initguilde",
+	    "lbl": "Ceux qui commercent : les GUILDIENS",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": ["guilde"],
+	    "desc": "blabla ligue",
+	    "next": []
+	}]
+}

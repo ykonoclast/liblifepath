@@ -19,6 +19,7 @@ package org.duckdns.spacedock.lifepath.liblifepath;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -33,26 +34,26 @@ public class PathNavigator
     /**
      * la référence contenant les données du jeu
      */
-    private ChoiceTree m_choiceTree;
+    private final ChoiceTree m_choiceTree;
 
     /**
      * la liste des nodes ayant déjà été sélectionnés au cours de ce parcours
      * (hors retour en arrière)
      */
-    private ArrayList<Node> m_nodesChoisis;
+    private final ArrayList<String> m_nodesChoisis = new ArrayList<>();
 
     /**
      * la liste des mots clés définis au cours de ce parcours (hors retour en
      * arrière)
      */
-    private HashSet m_motsClesDefinis;
+    private final HashSet<String> m_motsClesDefinis = new HashSet();
 
     /**
      * liste des choix autorisés dans l'état actuel, on utilise une
      * LinkedHashMap pour avoir à la fois les clés/valeurs (id/lbl) et
      * l'ordonnancement des éléments
      */
-    private LinkedHashMap m_choixPossibles;
+    private final LinkedHashMap<String, String> m_choixPossibles = new LinkedHashMap();
 
     /**
      * l'identifiant technique du node actuel
@@ -68,6 +69,7 @@ public class PathNavigator
 	m_choiceTree = new ChoiceTree();
 	//positionnement au début de l'arbre des choix
 	m_currentId = "init";
+	m_nodesChoisis.add(m_currentId);
     }
 
     /**
@@ -75,26 +77,26 @@ public class PathNavigator
      * @return une map contenant les choix possibles (description courte) en
      * clés et les id techniques (pour soumission ultérieure) en valeurs
      */
-    public Choice getCurrentChoice()
+    public LifepathChoice getCurrentChoice()
     {
 	Node nodeCourant = m_choiceTree.getNode(m_currentId);
-
-	//on parcourt la liste des successeurs du node actuels
+	m_choixPossibles.clear();
+	//on parcourt la liste des successeurs du node actuel
 	for (Object idSucc : nodeCourant.succ)
 	{
 	    //on récupère les infos du successeur dans l'arbre
 	    Node nodeSucc = m_choiceTree.getNode((String) idSucc);
 
-	    if (Collections.disjoint(nodeSucc.interdit, m_motsClesDefinis))
+	    if (nodeSucc.interdit.isEmpty() || Collections.disjoint(nodeSucc.interdit, m_motsClesDefinis))
 	    {//le node successeur n'est pas interdit
-		if (!Collections.disjoint(nodeSucc.obligatoire, m_motsClesDefinis))
-		{//les requis du node successeurs sont satisfaits
-		    m_choixPossibles.put(idSucc, nodeSucc.lbl);//on ajoute alors le node successeurs aux choix possibles
+		if (nodeSucc.obligatoire.isEmpty() || !Collections.disjoint(nodeSucc.obligatoire, m_motsClesDefinis))
+		{//les requis du node successeurs sont satisfaits (deux ensembles vides sont disjoints par défaut, d'où le OR pour régler ce cas limite
+		    m_choixPossibles.put((String) idSucc, nodeSucc.lbl);//on ajoute alors le node successeurs aux choix possibles
 		}
 	    }
 	}
 	//on renvoie la liste des choix possibles avec la description du node actuel
-	return new Choice(m_choixPossibles, m_choiceTree.getNode(m_currentId).desc);
+	return new LifepathChoice(m_choixPossibles, m_choiceTree.getNode(m_currentId).desc);
     }
 
     /**
@@ -105,26 +107,60 @@ public class PathNavigator
      * @return la même chose que la méthode getCurrentChoice une fois le choix
      * actuel mis à jour
      */
-    public Choice choose(String p_id)
+    public LifepathChoice choose(String p_id)
     {
 	if (m_choixPossibles.containsKey(p_id))
 	{//le choix effectué est autorisé
-	    m_currentId = p_id;
+	    m_currentId = p_id;//on le sélectionne
+	    m_nodesChoisis.add(p_id);//on l'ajoute à l'historique
+
+	    //ajout des mots clés définis par le nouveau node
+	    Iterator iterator = m_choiceTree.getNode(p_id).def.iterator();
+	    while (iterator.hasNext())
+	    {
+		m_motsClesDefinis.add((String) iterator.next());
+	    }
 	}
+	//ce return est important : il rend atomique le fait de choisir et la réactualisation de la liste des choix possibles qui est effectuée dans l'autre méthode
 	return getCurrentChoice();
+    }
+
+    /**
+     * revient un coup en arrière dans le chemin parcouru, ignoré si déjà au
+     * début
+     *
+     * @return
+     */
+    public LifepathChoice rollback()
+    {
+	if (m_nodesChoisis.size() > 1)
+	{//on est après le node initial (irrécupérable si on efface celui-là)
+
+	    //suppression des mots clés définis par le dernier node
+	    Iterator iterator = m_choiceTree.getNode(m_nodesChoisis.get(m_nodesChoisis.size() - 1)).def.iterator();
+	    while (iterator.hasNext())
+	    {
+		m_motsClesDefinis.remove((String) iterator.next());
+	    }
+
+	    //rollback effectif
+	    m_nodesChoisis.remove(m_nodesChoisis.size() - 1);
+	    m_currentId = m_nodesChoisis.get(m_nodesChoisis.size() - 1);
+	}
+	return getCurrentChoice();//important, rend atomique du rollback la réactualisation des choix possibles
     }
 
     /**
      * petite classe encapsulant les éléments d'un choix : la description du
      * node actuel ainsi que les prochains choix possibles
      */
-    public class Choice
+    public class LifepathChoice
     {
 
 	public final Map choices;
 	public final String desc;
 
-	public Choice(Map p_choices, String p_desc)
+	public LifepathChoice(Map p_choices, String p_desc)
 	{
 	    choices = p_choices;
 	    desc = p_desc;

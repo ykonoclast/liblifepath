@@ -19,7 +19,6 @@ package org.duckdns.spacedock.lifepath.liblifepath;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.ListIterator;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -55,10 +54,10 @@ class ChoiceTree
 	object = loadJsonFile("liblifepath", "commun.json");
 	m_listNodes.add(object.getJsonArray("nodes"));
 
-	object = loadJsonFile("liblifepath", "nobles.json");
+	object = loadJsonFile("liblifepath", "noble.json");
 	m_listNodes.add(object.getJsonArray("nodes"));
 
-	object = loadJsonFile("liblifepath", "aliens.json");
+	object = loadJsonFile("liblifepath", "alien.json");
 	m_listNodes.add(object.getJsonArray("nodes"));
 
 	//création de la HashMap
@@ -79,35 +78,35 @@ class ChoiceTree
 		String desc = jsonNode.getString("desc");
 
 		//on charge la liste des mots-clés obligatoires
-		HashSet obligatoire = new HashSet();
-		Iterator obligIterator = jsonNode.getJsonArray("obligatoire").iterator();
-		while (obligIterator.hasNext())
+		HashSet<String> obligatoire = new HashSet();
+		JsonArray tabOblig = jsonNode.getJsonArray("obligatoire");
+		for (int i = 0; i < tabOblig.size(); ++i)
 		{
-		    obligatoire.add(obligIterator.next());
+		    obligatoire.add(tabOblig.getString(i));
 		}
 
 		//on charge la liste des mots-clés interdits
-		HashSet interdit = new HashSet();
-		Iterator interdIterator = jsonNode.getJsonArray("interdit").iterator();
-		while (interdIterator.hasNext())
+		HashSet<String> interdit = new HashSet();
+		JsonArray tabInterdit = jsonNode.getJsonArray("interdit");
+		for (int i = 0; i < tabInterdit.size(); ++i)
 		{
-		    interdit.add(interdIterator.next());
+		    interdit.add(tabInterdit.getString(i));
 		}
 
 		//on charge la liste des mots-clés définis
-		HashSet def = new HashSet();
-		Iterator defIterator = jsonNode.getJsonArray("def").iterator();
-		while (defIterator.hasNext())
+		HashSet<String> def = new HashSet();
+		JsonArray tabDef = jsonNode.getJsonArray("def");
+		for (int i = 0; i < tabDef.size(); ++i)
 		{
-		    def.add(defIterator.next());
+		    def.add(tabDef.getString(i));
 		}
 
 		//on charge la liste des successeurs
-		HashSet succ = new HashSet();
-		Iterator succIterator = jsonNode.getJsonArray("next").iterator();
-		while (succIterator.hasNext())
+		HashSet<String> succ = new HashSet();
+		JsonArray tabSucc = jsonNode.getJsonArray("next");
+		for (int i = 0; i < tabSucc.size(); ++i)
 		{
-		    def.add(succIterator.next());
+		    succ.add(tabSucc.getString(i));
 		}
 
 		//on ajoute l'ensemble des données chargées à la HashMap

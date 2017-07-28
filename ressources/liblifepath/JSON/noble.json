@@ -8,7 +8,7 @@
 	    "def": ["noble"],
 	    "desc": "blabla nobles"
 	    ,
-	    "next": ["nf1", "nf2"]
+	    "next": ["nf1", "nf2", "nf3", "nf4", "nf5", "nf6"]
 	},
 	{
 	    "id": "nf1",
@@ -23,8 +23,43 @@
 	{
 	    "id": "nf2",
 	    "lbl": "l'infâme maison Decados",
-	    "desc": "Les mondes connus furent saisis de surprise quand les Decados échouèrent à s'emparer du trône impérial. Vous êtes né(e) dans une famille célébrée pour sa sophistication, son esprit et son charme, mais redoutée pour sa malveillance et ses excès dans le vice. "
-	    ,
+	    "desc": "Les mondes connus furent saisis de surprise quand les Decados échouèrent à s'emparer du trône impérial. Vous êtes né(e) dans une famille célébrée pour sa sophistication, son esprit et son charme, mais redoutée pour sa malveillance et ses excès dans le vice. ",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["ne"]
+	},
+	{
+	    "id": "nf3",
+	    "lbl": "la brave maison Hazat",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["ne"]
+	},
+	{
+	    "id": "nf4",
+	    "lbl": "la pieuse maison Li-Halan",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["ne"]
+	},
+	{
+	    "id": "nf5",
+	    "lbl": "la rusée maison Al-Malik",
+	    "desc": "blabla",
+	    "obligatoire": [],
+	    "interdit": [],
+	    "def": [],
+	    "next": ["ne"]
+	},
+	{
+	    "id": "nf6",
+	    "lbl": "une maison mineure",
+	    "desc": "blabla",
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
@@ -33,12 +68,11 @@
 	{
 	    "id": "ne",
 	    "lbl": "passer à l'étape de l'éducation nobiliaire",
-	    "desc": "blabla éducation"
-	    ,
+	    "desc": "blabla éducation",
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "next": ["ne1,ne2"]
+	    "next": ["ne1", "ne2"]
 	},
 
 	{

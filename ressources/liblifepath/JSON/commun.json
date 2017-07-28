@@ -6,9 +6,8 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "desc": "blabla ordre"
-	    ,
-	    "next": ["initnoble", "initalien"]
+	    "desc": "blabla ordre",
+	    "next": ["initnoble", "initpretre", "initguilde", "initalien"]
 	},
 
 	{
@@ -17,8 +16,7 @@
 	    "obligatoire": [],
 	    "interdit": [],
 	    "def": [],
-	    "desc": "blabla poursuite carrière"
-	    ,
+	    "desc": "blabla poursuite carrière",
 	    "next": ["pc1", "pc3", "pc5"]
 	},
 	{
@@ -27,8 +25,7 @@
 	    "obligatoire": [],
 	    "interdit": ["vorox", "2pc", "surcharge"],
 	    "def": ["2pc"],
-	    "desc": "blabla poursuite carrière 2"
-	    ,
+	    "desc": "blabla poursuite carrière 2",
 	    "next": ["pc1", "pc2", "pc3", "pc5"]
 	},
 	{
@@ -37,8 +34,7 @@
 	    "obligatoire": [],
 	    "interdit": ["pc1"],
 	    "def": ["pc1"],
-	    "desc": "blabla poursuite carrière"
-	    ,
+	    "desc": "blabla poursuite carrière",
 	    "next": ["2pc"]
 	},
 	{
@@ -47,14 +43,13 @@
 	    "obligatoire": ["pc1"],
 	    "interdit": [],
 	    "def": [],
-	    "desc": "blabla autre poursuite carrière"
-	    ,
+	    "desc": "blabla autre poursuite carrière",
 	    "next": []
 	},
 	{
 	    "id": "pc3",
 	    "lbl": "service impérial",
-	    "obligatoire": [],
+	    "obligatoire": ["noble", "pretre", "guilde"],
 	    "interdit": ["pc3"],
 	    "def": ["pc3"],
 	    "desc": "blabla service impérial",
@@ -72,7 +67,7 @@
 	    "id": "pc3b",
 	    "lbl": "Cohorte impériale",
 	    "obligatoire": ["pretre", "guilde"],
-	    "interdit": [],
+	    "interdit": ["noble"],
 	    "def": [],
 	    "desc": "blabla cohorte impériale",
 	    "next": ["2pc"]
@@ -97,7 +92,7 @@
 	    "id": "pc5b",
 	    "lbl": "surchargé",
 	    "obligatoire": [],
-	    "interdit": [],
+	    "interdit": ["2pc", "vorox"],
 	    "def": ["surcharge"],
 	    "desc": "blabla cyber abusé",
 	    "next": []
