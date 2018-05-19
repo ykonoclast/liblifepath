@@ -5,6 +5,7 @@
  */
 package org.duckdns.spacedock.lifepath.liblifepath;
 
+import org.duckdns.spacedock.liblifepath.PathNavigator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
