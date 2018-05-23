@@ -21,7 +21,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * classe naviguant dans les divers choix d'un lifepath
@@ -40,20 +42,20 @@ public class PathNavigator
      * la liste des nodes ayant déjà été sélectionnés au cours de ce parcours
      * (hors retour en arrière)
      */
-    private final ArrayList<String> m_nodesChoisis = new ArrayList<>();
+    private final List<String> m_nodesChoisis = new ArrayList<>();
 
     /**
      * la liste des mots clés définis au cours de ce parcours (hors retour en
      * arrière)
      */
-    private final HashSet<String> m_motsClesDefinis = new HashSet();
+    private final Set<String> m_motsClesDefinis = new HashSet();
 
     /**
      * liste des choix autorisés dans l'état actuel, on utilise une
      * LinkedHashMap pour avoir à la fois les clés/valeurs (id/lbl) et
      * l'ordonnancement des éléments
      */
-    private final LinkedHashMap<String, String> m_choixPossibles = new LinkedHashMap();
+    private final LinkedHashMap<String, String> m_decisionsPossibles = new LinkedHashMap();
 
     /**
      * l'identifiant technique du node actuel
@@ -80,9 +82,9 @@ public class PathNavigator
     public LifepathChoice getCurrentChoice()
     {
 	Node nodeCourant = m_choiceTree.getNode(m_currentId);
-	m_choixPossibles.clear();
+	m_decisionsPossibles.clear();
 	//on parcourt la liste des successeurs du node actuel
-	for (Object idSucc : nodeCourant.succ)
+	for (String idSucc : nodeCourant.succ)
 	{
 	    //on récupère les infos du successeur dans l'arbre
 	    Node nodeSucc = m_choiceTree.getNode((String) idSucc);
@@ -92,12 +94,21 @@ public class PathNavigator
 
 		if (nodeSucc.obligatoire.isEmpty() || m_motsClesDefinis.containsAll(nodeSucc.obligatoire))
 		{//les requis du node successeurs sont satisfaits, les mots clés obligatoires sont un sous-ensemble de ceux déjà définis
-		    m_choixPossibles.put((String) idSucc, nodeSucc.lbl);//on ajoute alors le node successeurs aux choix possibles
+		    m_decisionsPossibles.put((String) idSucc, nodeSucc.lbl);//on ajoute alors le node successeurs aux choix possibles
 		}
 	    }
 	}
 	//on renvoie la liste des choix possibles avec la description du node actuel
-	return new LifepathChoice(m_choixPossibles, m_choiceTree.getNode(m_currentId).desc);
+
+	LinkedHashMap<String, String> copyChoices = new LinkedHashMap<>();
+
+	for (Map.Entry<String, String> entry : m_decisionsPossibles.entrySet())
+	{
+	    copyChoices.put(entry.getKey(), ((Map.Entry<String, String>) entry).getValue());
+	}
+	String copyDesc = m_choiceTree.getNode(m_currentId).desc;
+
+	return new LifepathChoice(copyChoices, copyDesc);
     }
 
     /**
@@ -108,9 +119,9 @@ public class PathNavigator
      * @return la même chose que la méthode getCurrentChoice une fois le choix
      * actuel mis à jour
      */
-    public LifepathChoice choose(String p_id)
+    public LifepathChoice decide(String p_id)
     {
-	if (m_choixPossibles.containsKey(p_id))
+	if (m_decisionsPossibles.containsKey(p_id))
 	{//le choix effectué est autorisé
 	    m_currentId = p_id;//on le sélectionne
 	    m_nodesChoisis.add(p_id);//on l'ajoute à l'historique
@@ -134,9 +145,8 @@ public class PathNavigator
      */
     public LifepathChoice rollback()
     {
-	if (m_nodesChoisis.size() > 1)
-	{//on est après le node initial (irrécupérable si on efface celui-là)
-
+	if (canRollback())
+	{
 	    //suppression des mots clés définis par le dernier node
 	    Iterator iterator = m_choiceTree.getNode(m_nodesChoisis.get(m_nodesChoisis.size() - 1)).def.iterator();
 	    while (iterator.hasNext())
@@ -152,19 +162,45 @@ public class PathNavigator
     }
 
     /**
+     *
+     * @return si un rollback est possible
+     */
+    public boolean canRollback()
+    {
+	return (m_nodesChoisis.size() > 1);//on est après le node initial (irrécupérable si on efface celui-là)
+    }
+
+    /**
      * petite classe encapsulant les éléments d'un choix : la description du
      * node actuel ainsi que les prochains choix possibles
      */
     public class LifepathChoice
     {
-
-	public final Map choices;
+	public final LinkedHashMap<String, String> decisionsPossibles;
 	public final String desc;
 
-	public LifepathChoice(Map p_choices, String p_desc)
+	public LifepathChoice(LinkedHashMap p_decisions, String p_desc)
 	{
-	    choices = p_choices;
+	    decisionsPossibles = p_decisions;
 	    desc = p_desc;
+	}
+
+	/**
+	 * constructeur par copie
+	 *
+	 * @param p_choice
+	 */
+	public LifepathChoice(LifepathChoice p_choice)
+	{
+	    String copyDesc = p_choice.desc;
+	    LinkedHashMap<String, String> copyChoices = new LinkedHashMap<>();
+
+	    for (Map.Entry<String, String> entry : p_choice.decisionsPossibles.entrySet())
+	    {
+		copyChoices.put(entry.getKey(), entry.getValue());
+	    }
+	    this.decisionsPossibles = copyChoices;
+	    this.desc = copyDesc;
 	}
     }
 }

@@ -27,7 +27,6 @@ import java.util.Set;
  */
 class Node
 {
-
     /**
      * texte qui sera affiché sur le bouton de choix, description courte
      */
@@ -42,19 +41,19 @@ class Node
      * l'ordre, on ne veut pas de doublon et l'accès aléatoire n'est pas
      * nécessaire
      */
-    final Set obligatoire;
+    final Set<String> obligatoire;
     /**
      * les mot-clés interdits pour que ce choix soit sélectionnable
      */
-    final Set interdit;
+    final Set<String> interdit;
     /**
      * les mot-clés que ce choix va définir
      */
-    final Set def;
+    final Set<String> def;
     /**
      * les successeurs de ce node
      */
-    final Set succ;
+    final Set<String> succ;
 
     Node(String p_lbl, String p_desc, Set p_obligatoire, Set p_interdit, Set p_def, Set p_succ)
     {

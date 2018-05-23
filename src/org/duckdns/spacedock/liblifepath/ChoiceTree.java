@@ -19,7 +19,10 @@ package org.duckdns.spacedock.liblifepath;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
+import java.util.Set;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import static org.duckdns.spacedock.commonutils.JSONHandler.loadJsonFile;
@@ -33,12 +36,9 @@ class ChoiceTree
 {
 
     /**
-     * map des nodes : les id sont les clés et les infos du node les valeurs. On
-     * utilise une HashMap car on souhaite utiliser la structure clés/valeurs de
-     * plus l'ordre n'importe pas non plus que des capacités de parcours
-     * avancées ou l'accès aléatoire
+     * map des nodes : les id sont les clés et les infos du node les valeurs.
      */
-    HashMap m_tabNodes;
+    Map<String, Node> m_tabNodes;
 
     /**
      * constructeur : convertit les JSON en HashMap
@@ -47,9 +47,9 @@ class ChoiceTree
     ChoiceTree()
     {
 	//chargement des données depuis les fichiers JSON
-	JsonObject object;
+	List<JsonArray> m_listNodes = new ArrayList<>();
 
-	ArrayList<JsonArray> m_listNodes = new ArrayList<>();
+	JsonObject object;
 
 	object = loadJsonFile("liblifepath", "commun.json");
 	m_listNodes.add(object.getJsonArray("nodes"));
@@ -66,7 +66,7 @@ class ChoiceTree
 	object = loadJsonFile("liblifepath", "pretre.json");
 	m_listNodes.add(object.getJsonArray("nodes"));
 
-	//création de la HashMap
+	//création de la Map, On utilise une HashMap car on souhaite utiliser la structure clés/valeurs de plus l'ordre n'importe pas non plus que des capacités de parcours avancées ou l'accès aléatoire
 	m_tabNodes = new HashMap();
 
 	//on parcourt chaque tableau de nodes issu de chaque fichier
@@ -84,7 +84,7 @@ class ChoiceTree
 		String desc = jsonNode.getString("desc");
 
 		//on charge la liste des mots-clés obligatoires
-		HashSet<String> obligatoire = new HashSet();
+		Set<String> obligatoire = new HashSet();
 		JsonArray tabOblig = jsonNode.getJsonArray("obligatoire");
 		for (int i = 0; i < tabOblig.size(); ++i)
 		{
@@ -92,7 +92,7 @@ class ChoiceTree
 		}
 
 		//on charge la liste des mots-clés interdits
-		HashSet<String> interdit = new HashSet();
+		Set<String> interdit = new HashSet();
 		JsonArray tabInterdit = jsonNode.getJsonArray("interdit");
 		for (int i = 0; i < tabInterdit.size(); ++i)
 		{
@@ -100,7 +100,7 @@ class ChoiceTree
 		}
 
 		//on charge la liste des mots-clés définis
-		HashSet<String> def = new HashSet();
+		Set<String> def = new HashSet();
 		JsonArray tabDef = jsonNode.getJsonArray("def");
 		for (int i = 0; i < tabDef.size(); ++i)
 		{
@@ -108,7 +108,7 @@ class ChoiceTree
 		}
 
 		//on charge la liste des successeurs
-		HashSet<String> succ = new HashSet();
+		Set<String> succ = new HashSet();
 		JsonArray tabSucc = jsonNode.getJsonArray("next");
 		for (int i = 0; i < tabSucc.size(); ++i)
 		{
@@ -123,6 +123,6 @@ class ChoiceTree
 
     Node getNode(String p_id)
     {
-	return (Node) m_tabNodes.get((Object) p_id);
+	return m_tabNodes.get(p_id);
     }
 }
